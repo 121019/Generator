@@ -2,14 +2,15 @@ h1{
 
      text-align: center;
      color: rgb(240, 193, 135);
-    font-size: 2rem;
-    border: 10px double #000; /* Largeur de 10px et couleur noire */
-     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+     font-size: 2rem;
+     border: 10px ; /* Largeur de 10px et couleur noire */
+     box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.5);
+      
     }
     
     .numbers{
-    cursor: pointer;
-    margin:5rem;
+     cursor: pointer;
+     margin:5rem;
     
     }
     
@@ -27,35 +28,34 @@ h1{
     
     .button{
      justify-content: center;  
-    padding:1.5rem;
+     padding:1.5rem;
      font-size: 1.8rem;
-    
-    text-align: center;
-    align-items: center;
+     text-align: center;
+     align-items: center;
      cursor:pointer;
     }
     
     .message1{
-    font-size: 2rem;
-    text-align: center;
+     font-size: 2rem;
+     text-align: center;
      color:bisque;
     
     }
     .message2{
      color:red;
-    font-size: 2rem;
+     font-size: 2rem;
      text-align: center;
     }
     
     
     h2{
      color : red;
-    font-size: 1.3rem;
+     font-size: 1.3rem;
      text-align: center;
     }
     
     .message{
-    color:red;
+     color:red;
     }
     
     

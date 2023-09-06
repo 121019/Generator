@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 
-import blancheneigeskull from "../blancheneigeskull.jpg";
-import monalisaskull from "public/assets/monalisaskull.jpg";
-import femmeageeskull from "public/assets/femmeageeskull.jpg";
-import zombieskull from "public/assets/zombieskull.png";
-import supermanskull from  "public/assets/supermanskull.jpg";
-import personnageeffrayant from "public/assets/personnageeffrayant.jpg";
-import personnageeffrayant1 from "public/assets/personnageeffrayant1.jpg";
-import personnageeffrayant2 from "public/assets/personnageeffrayant2.jpg";
-import personnageeffrayant3 from "public/assets/personnageeffrayant3.jpg";
+import blancheneigeskull from "/Assets/blancheneigeskull.jpg";
+import monalisaskull from "/Assets/monalisaskull.jpg";
+import femmeageeskull from "/Assets/femmeageeskull.jpg";
+import zombieskull from "/Assets/zombieskull.png";
+import supermanskull from  "/Assets/supermanskull.jpg";
+import personnageeffrayant from "/Assets/personnageeffrayant.jpg";
+import personnageeffrayant1 from "/Assets/personnageeffrayant1.jpg";
+import personnageeffrayant2 from "/Assets/personnageeffrayant2.jpg";
+import personnageeffrayant3 from "/Assets/personnageeffrayant3.jpg";
 
-import princess from "public/assets/princess.jpg";
-import princess3 from "public/assets/princess3.jpg";
-import princess1 from "public/assets/princess1.jpg";
-import magiciendoz from "public/assets/magiciendoz.jpg";
-import alladinpinup from "public/assets/alladinpinup.jpg";
-import magiciendoz2pinup from "public/assets/magiciendoz2pinup.jpg";
-import meregrandpinup from "public/assets/meregrandpinup.jpg";
-import princessPinUp3 from "public/assets/princessPinUp3.jpg";
-import blancheneigepinup2 from "public/assets/blancheneigepinup2.jpg";
-import princess2 from "public/assets/princess2.jpg";
+import princess from "/Assets/princess.jpg";
+import princess3 from "/Assets/princess3.jpg";
+import princess1 from "/Assets/princess1.jpg";
+import magiciendoz from "/Assets/magiciendoz.jpg";
+import alladinpinup from "/Assets/alladinpinup.jpg";
+import magiciendoz2pinup from "/Assets/magiciendoz2pinup.jpg";
+import meregrandpinup from "/Assets/meregrandpinup.jpg";
+import princessPinUp3 from "/Assets/princessPinUp3.jpg";
+import blancheneigepinup2 from "/Assets/blancheneigepinup2.jpg";
+import princess2 from "/Assets/princess2.jpg";
 
-import "src/components/Calcul.css";
+import "./Calcul.css";
 
 const badResponseImages = [personnageeffrayant, personnageeffrayant1, personnageeffrayant2, personnageeffrayant3, zombieskull, blancheneigeskull, monalisaskull, supermanskull, femmeageeskull];
 
@@ -88,13 +88,13 @@ class Calcul extends Component {
   };
 
   playCorrectSound() {
-    let audio = new Audio("public/assets/SF-fouet3.mp3");
+    let audio = new Audio("public/Assets/SF-fouet3.mp3");
     audio.play();
   }
 
   playIncorrectSound() {
     let audio = new Audio(
-      "public/assets/Female_Scream_Horror-NeoPhyTe-goodanswer.mp3"
+      "public/Assets/Female_Scream_Horror-NeoPhyTe-goodanswer.mp3"
     );
     audio.play();
   }
@@ -108,8 +108,8 @@ class Calcul extends Component {
     const { num1, num2, answer, score, feedback, badResponseImage, goodResponseImage, showConfirmation } = this.state;
 
     const imageStyle = {
-      width: "35rem",
-      height: "40rem",
+      width: "45rem",
+      height: "45rem",
     };
     return (
       
