@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import add from "../utils/calcul.js";
 
 import blancheneigeskull from "/Assets/blancheneigeskull.jpg";
 import monalisaskull from "/Assets/monalisaskull.jpg";
@@ -48,13 +49,9 @@ const goodResponseImages = [
   princessPinUp3,
 ];
 
-function getRandomNumber() {
-  return Math.floor(Math.random() * 10000) + 1;
-}
+let { correctAnswer, num1, num2 } = add();
 
-let num1 = getRandomNumber();
-let num2 = getRandomNumber();
-const correctAnswer = num1 + num2;
+console.log(correctAnswer);
 class Calcul extends Component {
   constructor() {
     super();
@@ -71,7 +68,7 @@ class Calcul extends Component {
   }
 
   checkAnswer = () => {
-    const { num1, num2, answer, score } = this.state;
+    const { answer, score } = this.state;
 
     if (parseInt(answer) === correctAnswer) {
       // correct answer
@@ -197,4 +194,4 @@ class Calcul extends Component {
 }
 
 export default Calcul;
-export { correctAnswer };
+correctAnswer;
