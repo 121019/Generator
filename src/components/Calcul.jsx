@@ -48,12 +48,19 @@ const goodResponseImages = [
   princessPinUp3,
 ];
 
+function getRandomNumber() {
+  return Math.floor(Math.random() * 10000) + 1;
+}
+
+let num1 = getRandomNumber();
+let num2 = getRandomNumber();
+const correctAnswer = num1 + num2;
 class Calcul extends Component {
   constructor() {
     super();
     this.state = {
-      num1: this.getRandomNumber(),
-      num2: this.getRandomNumber(),
+      num1: num1,
+      num2: num2,
       answer: "",
       score: 0,
       feedback: "",
@@ -63,23 +70,17 @@ class Calcul extends Component {
     };
   }
 
-  getRandomNumber() {
-    return Math.floor(Math.random() * 10000) + 1;
-  }
-
   checkAnswer = () => {
     const { num1, num2, answer, score } = this.state;
-    const correctAnswer = num1 + num2;
 
     if (parseInt(answer) === correctAnswer) {
       // correct answer
       this.playCorrectSound(); // For play the sound
       this.setState({
         score: score + 1,
-        num1: this.getRandomNumber(),
-        num2: this.getRandomNumber(),
+
         answer: "",
-        feedback: <p class="goodReponse">Bonne réponse</p>,
+        feedback: <p className="goodReponse">Bonne réponse</p>,
         goodResponseImage:
           goodResponseImages[
             Math.floor(Math.random() * goodResponseImages.length)
@@ -95,7 +96,7 @@ class Calcul extends Component {
     } else {
       this.playIncorrectSound(); //for play the sound
       this.setState({
-        feedback: <p class="badReponse">Mauvaise réponse</p>,
+        feedback: <p className="badReponse">Mauvaise réponse</p>,
         badResponseImage:
           badResponseImages[
             Math.floor(Math.random() * badResponseImages.length)
@@ -150,7 +151,8 @@ class Calcul extends Component {
         </div>
         <div className="numbers">
           <p>
-            {num1} + {num2} ={" "}
+            <span className="num1">{num1}</span> +{" "}
+            <span className="num2">{num2}</span> =
             <input
               type="text"
               value={answer}
@@ -164,10 +166,11 @@ class Calcul extends Component {
           <button onClick={this.checkAnswer}>Valider...</button>
         </div>{" "}
         {feedback && <p>{feedback}</p>}
-        <div className={` ${showConfirmation ? "good-response" : ""}`}>
+        <div className={`${showConfirmation ? "good-response" : ""}`}>
           <div className="picture">
             {goodResponseImage && (
               <img
+                className="goodImage"
                 src={goodResponseImage}
                 alt="Image de bonne réponse"
                 style={imageStyle}
@@ -175,9 +178,10 @@ class Calcul extends Component {
             )}
           </div>
         </div>
-        <div className={` ${showConfirmation ? "wrong-response" : ""}`}>
+        <div className={`${showConfirmation ? "wrong-response" : ""}`}>
           {badResponseImage && (
             <img
+              className="badImage"
               src={badResponseImage}
               alt="Image de mauvaise réponse"
               style={imageStyle}
@@ -193,3 +197,4 @@ class Calcul extends Component {
 }
 
 export default Calcul;
+export { correctAnswer };
