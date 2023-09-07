@@ -4,7 +4,7 @@ import blancheneigeskull from "/Assets/blancheneigeskull.jpg";
 import monalisaskull from "/Assets/monalisaskull.jpg";
 import femmeageeskull from "/Assets/femmeageeskull.jpg";
 import zombieskull from "/Assets/zombieskull.png";
-import supermanskull from  "/Assets/supermanskull.jpg";
+import supermanskull from "/Assets/supermanskull.jpg";
 import personnageeffrayant from "/Assets/personnageeffrayant.jpg";
 import personnageeffrayant1 from "/Assets/personnageeffrayant1.jpg";
 import personnageeffrayant2 from "/Assets/personnageeffrayant2.jpg";
@@ -23,9 +23,30 @@ import princess2 from "/Assets/princess2.jpg";
 
 import "./Calcul.css";
 
-const badResponseImages = [personnageeffrayant, personnageeffrayant1, personnageeffrayant2, personnageeffrayant3, zombieskull, blancheneigeskull, monalisaskull, supermanskull, femmeageeskull];
+const badResponseImages = [
+  personnageeffrayant,
+  personnageeffrayant1,
+  personnageeffrayant2,
+  personnageeffrayant3,
+  zombieskull,
+  blancheneigeskull,
+  monalisaskull,
+  supermanskull,
+  femmeageeskull,
+];
 
-const goodResponseImages = [princess, princess1,princess3, princess2, magiciendoz,magiciendoz2pinup, blancheneigepinup2, meregrandpinup,alladinpinup, princessPinUp3];
+const goodResponseImages = [
+  princess,
+  princess1,
+  princess3,
+  princess2,
+  magiciendoz,
+  magiciendoz2pinup,
+  blancheneigepinup2,
+  meregrandpinup,
+  alladinpinup,
+  princessPinUp3,
+];
 
 class Calcul extends Component {
   constructor() {
@@ -58,24 +79,27 @@ class Calcul extends Component {
         num1: this.getRandomNumber(),
         num2: this.getRandomNumber(),
         answer: "",
-        feedback: "Bonne réponse",
+        feedback: <p class="goodReponse">Bonne réponse</p>,
         goodResponseImage:
-        goodResponseImages[Math.floor(Math.random() * goodResponseImages.length)],
+          goodResponseImages[
+            Math.floor(Math.random() * goodResponseImages.length)
+          ],
         showConfirmation: false,
-        playCorrectSound:true,
-        playIncorrectSound :true,
-
+        playCorrectSound: true,
+        playIncorrectSound: true,
       });
-      //Reset Image after 6 sec 
+      //Reset Image after 6 sec
       setTimeout(() => {
         this.setState({ goodResponseImage: null });
       }, 6000);
     } else {
       this.playIncorrectSound(); //for play the sound
       this.setState({
-        feedback: "Mauvaise réponse",
+        feedback: <p class="badReponse">Mauvaise réponse</p>,
         badResponseImage:
-        badResponseImages[Math.floor(Math.random() * badResponseImages.length)],
+          badResponseImages[
+            Math.floor(Math.random() * badResponseImages.length)
+          ],
       });
       setTimeout(() => {
         this.setState({ badResponseImage: null });
@@ -105,56 +129,65 @@ class Calcul extends Component {
   };
 
   render() {
-    const { num1, num2, answer, score, feedback, badResponseImage, goodResponseImage, showConfirmation } = this.state;
+    const {
+      num1,
+      num2,
+      answer,
+      score,
+      feedback,
+      badResponseImage,
+      goodResponseImage,
+      showConfirmation,
+    } = this.state;
 
     const imageStyle = {
-      width: "45rem",
-      height: "45rem",
+      height: "90svh",
     };
     return (
-      
-        <><div className="calcul">
-        <h1>Générateur de Calcul Mental</h1>
-      </div>
-      <div className="numbers">
+      <>
+        <div className="calcul">
+          <h1>Générateur de Calcul Mental</h1>
+        </div>
+        <div className="numbers">
           <p>
             {num1} + {num2} ={" "}
             <input
               type="text"
               value={answer}
               onChange={this.handleNumericInputChange}
-              placeholder="Votre réponse" />
+              placeholder="Votre réponse"
+            />
           </p>
-          </div>
-
-          <h2>{showConfirmation ? "T'es sur de toi ???" : ""}</h2>
-          
-          <div className="button">
-          <button onClick={this.checkAnswer}>Valider...</button>
         </div>
-
-        <div className={`message1 ${showConfirmation ? "good-response" : ""}`}>
-          {feedback && <p>{feedback}</p>}
+        <h2>{showConfirmation ? "T'es sur de toi ???" : ""}</h2>
+        <div className="divButton">
+          <button onClick={this.checkAnswer}>Valider...</button>
+        </div>{" "}
+        {feedback && <p>{feedback}</p>}
+        <div className={` ${showConfirmation ? "good-response" : ""}`}>
           <div className="picture">
             {goodResponseImage && (
               <img
                 src={goodResponseImage}
                 alt="Image de bonne réponse"
-                style={imageStyle} />
-            )}</div>
-
-          <div className={`message ${showConfirmation ? "wrong-response" : ""}`}>
-            {badResponseImage && (
-              <img
-                src={badResponseImage}
-                alt="Image de mauvaise réponse"
-                style={imageStyle} />
+                style={imageStyle}
+              />
             )}
           </div>
         </div>
+        <div className={` ${showConfirmation ? "wrong-response" : ""}`}>
+          {badResponseImage && (
+            <img
+              src={badResponseImage}
+              alt="Image de mauvaise réponse"
+              style={imageStyle}
+            />
+          )}
+        </div>
         <div className="score">
           <p>Score : {score}</p>
-        </div></>
+        </div>
+      </>
     );
   }
 }
