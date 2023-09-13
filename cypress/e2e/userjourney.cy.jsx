@@ -1,4 +1,4 @@
-import add from "../../src/utils/calcul";
+import * as calcul from "../../src/utils/calcul.js";
 
 describe("User journey", () => {
   beforeEach(() => {
@@ -12,8 +12,8 @@ describe("User journey", () => {
     cy.get(".badImage").should("exist");
     cy.get(".score > p").should("have.text", "Score : 0");
   });
-  xit("It's a good response !!!", () => {
-    cy.stub(window, "add").returns({
+  it("It's a good response !!!", () => {
+    cy.stub(calcul, `add`).returns({
       correctAnswer: 4,
       num1: 2,
       num2: 2,

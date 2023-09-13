@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import add from "../utils/calcul.js";
+import { add } from "../utils/calcul.js";
 
 import blancheneigeskull from "/Assets/blancheneigeskull.jpg";
 import monalisaskull from "/Assets/monalisaskull.jpg";
@@ -194,4 +194,3 @@ class Calcul extends Component {
 }
 
 export default Calcul;
-correctAnswer;
