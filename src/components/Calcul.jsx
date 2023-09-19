@@ -140,7 +140,8 @@ class Calcul extends Component {
     } = this.state;
 
     const imageStyle = {
-      height: "90svh",
+      width: "40rem",
+      height:"45rem"
     };
     return (
       <>
