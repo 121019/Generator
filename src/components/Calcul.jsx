@@ -88,13 +88,13 @@ class Calcul extends Component {
   };
 
   playCorrectSound() {
-    let audio = new Audio("/Assets/SF-fouet3.mp3");
+    let audio = new Audio("./Assets/SF-fouet3.mp3");
     audio.play();
   }
 
   playIncorrectSound() {
     let audio = new Audio(
-      "/Assets/Female_Scream_Horror-NeoPhyTe-goodanswer.mp3"
+      "./Assets/Female_Scream_Horror-NeoPhyTe-goodanswer.mp3"
     );
     audio.play();
   }
