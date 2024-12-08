@@ -154,7 +154,12 @@ class Calcul extends Component {
         </div>
         <div className="score">
           <p>Score : {score}</p>
-        </div></>
+        </div>
+        
+        <div className="footer">
+         <p> 🔊 Allumez vos hauts-parleurs pour une expérience complète !
+        </p>
+      </div></>
     );
   }
 }
