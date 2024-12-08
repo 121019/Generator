@@ -43,7 +43,7 @@ class Calcul extends Component {
   }
 
   getRandomNumber() {
-    return Math.floor(Math.random() * 10000) + 1;
+    return Math.floor(Math.random() * 1000) + 1;
   }
 
   checkAnswer = () => {
@@ -88,13 +88,13 @@ class Calcul extends Component {
   };
 
   playCorrectSound() {
-    let audio = new Audio("public/Assets/SF-fouet3.mp3");
+    let audio = new Audio("/dist/assets/SF-fouet3.mp3");
     audio.play();
   }
 
   playIncorrectSound() {
     let audio = new Audio(
-      "public/Assets/Female_Scream_Horror-NeoPhyTe-goodanswer.mp3"
+      "/dist/assets/Female_Scream_Horror-NeoPhyTe-goodanswer.mp3"
     );
     audio.play();
   }
